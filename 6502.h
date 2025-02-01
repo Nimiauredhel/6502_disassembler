@@ -94,6 +94,16 @@ typedef enum AddressingMode
     ADDRESSING_INDEXED_ZEROPAGE_Y = 72, // aka Zero Page,Y
 } AddressingMode_t;
 
+typedef const struct Registers
+{
+    uint8_t A; // Accumulator
+    uint8_t X; // X Index
+    uint8_t Y; // Y Index
+    uint8_t P; // Processor Status
+    uint8_t PC; // Program Counter
+    uint8_t S; // Stack Pointer
+} Registers_t;
+
 typedef const struct Operation
 {
     uint8_t prefix_index;
@@ -102,7 +112,8 @@ typedef const struct Operation
     uint8_t time_cycles;
 } Operation_t;
 
-extern const char prefixes[57][3];
+extern const char prefixes[57][4];
+extern const uint8_t addressing_operand_counts[12];
 extern const char addressing_formats[12][16];
 extern const Operation_t opcodes[256];
 

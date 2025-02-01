@@ -1,6 +1,6 @@
 #include "6502.h"
 
-const char prefixes[57][3] =
+const char prefixes[57][4] =
 {
     "???", "ADC", "AND", "ASL",
     "BCC", "BCS", "BEQ", "BIT", "BMI", "BNE", "BPL", "BRK", "BVC", "BVS",
@@ -9,6 +9,11 @@ const char prefixes[57][3] =
     "LDA", "LDX", "LDY", "LSR", "NOP", "ORA", "PHA", "PHP", "PLA", "PLP",
     "ROL", "ROR", "RTI", "RTS", "SBC", "SEC", "SED", "SEI", "STA", "STX", "STY",
     "TAX", "TAY", "TSX", "TXA", "TXS", "TYA"
+};
+
+const uint8_t addressing_operand_counts[12] =
+{
+    0, 1, 1, 1, 0, 0, 2, 2, 1, 1, 1, 1
 };
 
 const char addressing_formats[12][16] = 

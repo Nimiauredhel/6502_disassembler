@@ -103,5 +103,7 @@ typedef const struct Operation
 } Operation_t;
 
 extern const char prefixes[57][3];
+extern const char addressing_formats[12][16];
+extern const Operation_t opcodes[256];
 
 #endif

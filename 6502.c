@@ -11,6 +11,22 @@ const char prefixes[57][3] =
     "TAX", "TAY", "TSX", "TXA", "TXS", "TYA"
 };
 
+const char addressing_formats[12][16] = 
+{
+    "%s ???",
+    "%s #$%02x",
+    "%s $%04x",
+    "%s $%02x",
+    "%s",
+    "%s",
+    "%s $%04x,%c",
+    "%s $%02x,%c",
+    "%s ($%04x)",
+    "%s ($%02x,X)",
+    "%s ($%02x), Y",
+    "%s $%02x",
+};
+
 const Operation_t opcodes[256] =
 {
     {PREFIX_BRK,ADDRESSING_IMPLIED,1,7},

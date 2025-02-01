@@ -12,6 +12,7 @@ int main(int argc, char **argv)
     }
 
     FILE *rom = fopen(argv[1], "r");
+    //fseek(rom, 16, SEEK_SET);
     Operation_t *op;
 
     size_t bytes_read;
@@ -41,11 +42,14 @@ int main(int argc, char **argv)
         {
             case 0:
                 sprintf(buffer, addressing_formats[format_index], prefixes[op->prefix_index]);
+                break;
             case 1:
                 sprintf(buffer, addressing_formats[format_index], prefixes[op->prefix_index], user_operand);
+                break;
             case 2:
                 sprintf(buffer, addressing_formats[format_index], prefixes[op->prefix_index], user_operand,
                         addressing_mode == ADDRESSING_INDEXED_ZEROPAGE_X || addressing_mode == ADDRESSING_INDEXED_X ? 'X' : 'Y');
+                break;
         }
 
         printf("%s\n", buffer);
